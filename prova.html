@@ -106,6 +106,8 @@
         let cognome = document.getElementById("cognome").value;
         let matricola = document.getElementById("matricola").value;
         let email = document.getElementById("email").value;
+        let regione = document.getElementById("regione").value;
+        let telefono = document.getElementById("telefono").value;
 
         if (nome === "" || nome === undefined) {
           alert("Il nome è un campo obbligatorio");
@@ -116,8 +118,20 @@
         if (matricola === "" || matricola === undefined) {
           alert("La matricola è un campo obbligatorio");
         }
+        if (isNan(matricola)) {
+          alert("La matricola deve essere numerica");
+        }
+        if (regione === "" || regione === undefined) {
+          alert("La regione deve essere selezionata");
+        }
         if (!match(email)) {
           alert("L'email non è in formato valido");
+        }
+        if (email === "" || email === undefined) {
+          alert("L'email è un campo obbligatorio");
+        }
+        if (telefono === "" || telefono === undefined) {
+          alert("Il telefono è un campo obbligatorio");
         }
       }
     </script>
