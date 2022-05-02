@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <title>Esercizio form validato</title>
+  </head>
+
+  <body>
+    <form>
+      <p>
+        <label for="cognome">Cognome:</label>
+        <!-- Si può usare l'attributo di input required -->
+        <input
+          type="text"
+          id="cognome"
+          name="cognome"
+          size="40"
+          maxlength="40"
+          id="nome"
+        />
+      </p>
+      <p>
+        <label for="nome">Nome:</label>
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          size="30"
+          maxlength="30"
+          id="cognome"
+        /><br /><br />
+      </p>
+      <p>
+        <label for="matricola">Matricola:</label>
+        <input
+          type="text"
+          id="matricola"
+          name="matricola"
+          maxlength="12"
+          size="12"
+        />
+      </p>
+      <p>
+        <label for="regione">Scegli una regione:</label>
+        <select name="regione" id="regione">
+          <option value="Abruzzo">Abruzzo</option>
+          <option value="Basilicata">Basilicata</option>
+          <option value="Calabria">Calabria</option>
+          <option value="Campania">Campania</option>
+          <option value="Emilia Romagna">Emilia Romagna</option>
+          <option value="Friuli Venezia Giulia">Friuli Venezia Giulia</option>
+          <option value="Lazio">Lazio</option>
+          <option value="Liguria">Liguria</option>
+          <option value="Lombardia">Lombardia</option>
+          <option value="Marche">Marche</option>
+          <option value="Molise">Molise</option>
+          <option value="Piemonte">Piemonte</option>
+          <option value="Puglia">Puglia</option>
+          <option value="Sardegna">Sardegna</option>
+          <option value="Sicilia">Sicilia</option>
+          <option value="Toscana">Toscana</option>
+          <option value="Trentino Alto Adige">Trentino Alto Adige</option>
+          <option value="Umbria">Umbria</option>
+          <option value="Val d'Aosta">Val d'Aosta</option>
+          <option value="Veneto">Veneto</option>
+        </select>
+      </p>
+      <p>
+        <!-- Si può usare come attributo type "email" -->
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          size="30"
+          maxlength="30"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+        />
+      </p>
+      <p>
+        <label for="tel">Telefono:</label>
+        <input type="tel" id="tel" name="tel" size="15" maxlength="15" />
+      </p>
+      <p>
+        <label for="richieste">Richieste particolari:</label>
+        <textarea
+          id="richieste"
+          name="richieste"
+          rows="12"
+          cols="60"
+        ></textarea>
+      </p>
+
+      <input type="submit" onclick="validate()" value="Submit" />
+
+      <input type="reset" value="Reset" />
+    </form>
+
+    <script>
+      function match(email) {
+        return email.match(
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+      }
+
+      function validate() {
+        let nome = document.getElementById("nome").value;
+        let cognome = document.getElementById("cognome").value;
+        let matricola = document.getElementById("matricola").value;
+        let email = document.getElementById("email").value;
+
+        if (nome === "" || nome === undefined) {
+          alert("Il nome è un campo obbligatorio");
+        }
+        if (cognome === "" || cognome === undefined) {
+          alert("Il cognome è un campo obbligatorio");
+        }
+        if (matricola === "" || matricola === undefined) {
+          alert("La matricola è un campo obbligatorio");
+        }
+        if (!match(email)) {
+          alert("L'email non è in formato valido");
+        }
+      }
+    </script>
+  </body>
+</html>
