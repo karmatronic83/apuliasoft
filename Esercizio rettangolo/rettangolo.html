@@ -13,6 +13,10 @@
         drawRectangle(canvas, e, numero);
       });
 
+      canvas.addEventListener("contextmenu", function (e) {
+        eraseRectangle(canvas, e);
+      });
+
       function generateRandomIntegerInRange(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
       }
@@ -30,6 +34,21 @@
         return colors[Math.floor(Math.random() * colors.length)];
       }
 
+      function eraseRectangle(canvas, event) {
+        const rect = canvas.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        let context = canvas.getContext("2d");
+
+        heigth = generateRandomIntegerInRange(50, 400);
+        width = generateRandomIntegerInRange(50, 400);
+
+        context.beginPath();
+
+        context.clearRect(x, y, width, heigth);
+      }
+
       function drawRectangle(canvas, event) {
         const rect = canvas.getBoundingClientRect();
         const x = event.clientX - rect.left;
@@ -42,8 +61,8 @@
 
         context.fillStyle = randomColor();
         context.font = "50px serif";
-        context.fillRect(x, y, heigth, width);
-        context.fillText(`${numero}`, x + heigth, y + width);
+        context.fillRect(x, y, width, heigth);
+        context.fillText(`${numero}`, x + width, y + heigth);
         numero += 1;
       }
     </script>
