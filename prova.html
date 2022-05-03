@@ -4,7 +4,7 @@
   </head>
 
   <body>
-    <form>
+    <form method="POST">
       <p>
         <label for="cognome">Cognome:</label>
         <!-- Si può usare l'attributo di input required -->
@@ -124,6 +124,7 @@
         if (regione === "" || regione === undefined) {
           alert("La regione deve essere selezionata");
         }
+        // Si può usare l'operatore typeof
         if (!match(email)) {
           alert("L'email non è in formato valido");
         }
