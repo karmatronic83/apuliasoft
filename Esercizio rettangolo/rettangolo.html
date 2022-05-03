@@ -4,6 +4,11 @@
     <title>Draw a rectangular shape</title>
   </head>
   <body>
+    <h1>Tavolozza per rettangoli</h1>
+    <p>
+      Disegna i rettangoli con il tasto destro del mouse, cancellali con quello
+      sinistro
+    </p>
     <canvas id="canvas" width="800" height="800"></canvas>
     <script>
       let canvas = document.getElementById("canvas");
@@ -22,7 +27,7 @@
       }
 
       function randomColor() {
-        var colors = [
+        const colors = [
           "red",
           "green",
           "blue",
