@@ -7,9 +7,10 @@
     <canvas id="canvas" width="800" height="800"></canvas>
     <script>
       let canvas = document.getElementById("canvas");
+      var numero = 1;
 
       canvas.addEventListener("click", function (e) {
-        drawRectangle(canvas, e);
+        drawRectangle(canvas, e, numero);
       });
 
       function generateRandomIntegerInRange(min, max) {
@@ -40,7 +41,10 @@
         width = generateRandomIntegerInRange(50, 400);
 
         context.fillStyle = randomColor();
+        context.font = "50px serif";
         context.fillRect(x, y, heigth, width);
+        context.fillText(`${numero}`, x + heigth, y + width);
+        numero += 1;
       }
     </script>
   </body>
