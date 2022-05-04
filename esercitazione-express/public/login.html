@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Log In</title>
+    <link rel="stylesheet" type="text/css" href="css/login.scss" />
+  </head>
+  <body>
+    <div class="login">
+      <div class="heading">
+        <h2>Sign in</h2>
+        <form action="http://localhost:3000/login_post" method="POST">
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Username or email"
+              name="username"
+            />
+          </div>
+
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              name="password"
+            />
+          </div>
+
+          <button type="submit" class="float">Login</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

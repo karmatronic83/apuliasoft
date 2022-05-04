@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Disegna i tuoi rettangoli</title>
+  </head>
+  <body></body>
+  <script>
+    var body = document.getElementsByTagName("body")[0];
+    var numero = 1;
+
+    function generateRandomIntegerInRange(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function randomColor() {
+      const colors = [
+        "red",
+        "green",
+        "blue",
+        "purple",
+        "yellow",
+        "brown",
+        "black",
+      ];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    function drawRectangle(e) {
+      let rettangolo = document.getElementsByClassName("rettangolo");
+
+      if (rettangolo !== event.target && !rettangolo.contains(event.target)) {
+        console.log('clicking outside the div');
+
+      let x = e.clientX;
+      let y = e.clientY;
+
+      heigth = generateRandomIntegerInRange(50, 400);
+      width = generateRandomIntegerInRange(50, 400);
+
+      color = randomColor();
+
+      let div = document.createElement("div");
+      div.style.position = "absolute";
+      div.style.top = y;
+      div.style.left = x;
+      div.style.width = width;
+      div.style.height = heigth;
+      div.style.backgroundColor = color;
+      div.textContent = `${numero}`;
+      div.classList.add(`rettangolo`);
+      body.appendChild(div);
+      numero += 1;
+    }
+
+    body.addEventListener("click", function (e) {
+      drawRectangle(e, numero);
+    });
+  </script>
+</html>
